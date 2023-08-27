@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Gerenciamento de Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Sistema de Gerenciamento de Produtos</h1>
+    <div class="container">
+        <h2>Cadastrar Produto</h2>
+        <form action="{{ url_for('cadastrar_produto') }}" method="post">
+            <label for="codigo">Código:</label>
+            <input type="text" name="codigo" id="codigo" required>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required>
+            <label for="preco">Preço:</label>
+            <input type="number" name="preco" id="preco" step="0.01" required>
+            <label for="estoque">Estoque:</label>
+            <input type="number" name="estoque" id="estoque" required>
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+    <div class="container">
+        <h2>Listar Produtos</h2>
+        <button onclick="listarProdutos()">Listar Produtos</button>
+        <div id="listaProdutos"></div>
+    </div>
+    <div class="container">
+        <h2>Pesquisar Produto</h2>
+        <form onsubmit="return pesquisarProduto()">
+            <label for="termo">Termo de busca:</label>
+            <input type="text" name="termo" id="termo" required>
+            <input type="submit" value="Pesquisar">
+        </form>
+        <div id="resultadoPesquisa"></div>
+    </div>
+    <div class="container">
+        <h2>Alterar Produto</h2>
+        <form onsubmit="return alterarProduto()">
+            <label for="codigoAlterar">Código do Produto:</label>
+            <input type="text" name="codigoAlterar" id="codigoAlterar" required>
+            <label for="novoNome">Novo Nome:</label>
+            <input type="text" name="novoNome" id="novoNome" required>
+            <label for="novoPreco">Novo Preço:</label>
+            <input type="number" name="novoPreco" id="novoPreco" step="0.01" required>
+            <label for="novoEstoque">Novo Estoque:</label>
+            <input type="number" name="novoEstoque" id="novoEstoque" required>
+            <input type="submit" value="Alterar">
+        </form>
+    </div>
+    <div class="container">
+        <h2>Remover Produto</h2>
+        <form onsubmit="return removerProduto()">
+            <label for="codigoRemover">Código do Produto:</label>
+            <input type="text" name="codigoRemover" id="codigoRemover" required>
+            <input type="submit" value="Remover">
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+    <div class="container">
+        <button onclick="voltar()">Voltar</button>
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+            </tr>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto['codigo'] }}</td>
+                <td>{{ produto['nome'] }}</td>
+                <td>{{ produto['preco'] }}</td>
+                <td>{{ produto['estoque'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <script src="static/scripts.js"></script>
+</body>
+</html>
